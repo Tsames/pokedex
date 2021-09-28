@@ -6,9 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/skeleton.css">
-  <title>Pokedex</title>
+  <link rel="stylesheet" href="/custom.css">
+  <title>Pokedex: All</title>
 </head>
 <body>
-  
+  <div class="container">
+    <% for (pokemon of data) { %>
+      <div class="pokemon-card" id="<%= pokemon.name %>">
+        <h4><%= pokemon.name %></h4>
+        <img src="<%= pokemon.img %>" alt="<%= `picture of ` + pokemon.name %>">
+        <div class="pokemon-card-actions">
+          <a href="/pokemon/:id/edit" method="GET">
+            <button>Edit</button>
+          </a>
+          <a href="/pokemon/:id" method="POST">
+            <button>Delete</button>
+          </a>
+        </div>
+      </div>
+    <% } %>
+  </div>
 </body>
 </html>
