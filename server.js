@@ -4,7 +4,6 @@
 
 const express = require('express');
 const methodOverride = require('method-override');
-const bodyParser = require('body-parser')
 const Pokemon = require('./models/pokemon.js');
 const PORT = 3000;
 const app = express();
@@ -13,8 +12,8 @@ const app = express();
  *  Middleware *
 *********************************/
 
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 /*********************************
