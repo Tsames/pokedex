@@ -37,6 +37,12 @@ app.delete('/pokemon/:id', (req,res) => {
 })
 
 //Update Route
+app.put('/pokemon/:id', (req, res) => {
+  console.log(Pokemon[req.params.id - 1].name);
+  console.log(req);
+  Pokemon[req.params.id - 1].name = req.body.name
+  res.redirect('/pokemon');
+})
 
 //Create Route
 
