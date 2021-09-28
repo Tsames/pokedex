@@ -16,12 +16,12 @@
         <h4><%= pokemon.name %></h4>
         <img src="<%= pokemon.img %>" alt="<%= `picture of ` + pokemon.name %>">
         <div class="pokemon-card-actions">
-          <a href="/pokemon/:id/edit" method="GET">
+          <a href="/pokemon/:id/edit">
             <button>Edit</button>
           </a>
-          <a href="/pokemon/:id" method="POST">
+          <form action="/pokemon/:id?_method=DELETE" method="POST">
             <button>Delete</button>
-          </a>
+          <form>
         </div>
       </div>
     <% } %>

@@ -3,6 +3,7 @@
 *********************************/
 
 const express = require('express');
+const methodOverride = require('method-override');
 const Pokemon = require('./models/pokemon.js');
 const PORT = 3000;
 const app = express();
@@ -12,6 +13,7 @@ const app = express();
 *********************************/
 
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(express.static('public'))
 
 /*********************************
@@ -29,6 +31,10 @@ app.get('/pokemon/new', (req,res) => {
 })
 
 //Delete Route
+app.delete('/pokemon/:id', (req,res) => {
+  Pokemon.splice(Number(req.params.id) - 1, 1);
+  res.redirect('/pokemon');
+})
 
 //Update Route
 
