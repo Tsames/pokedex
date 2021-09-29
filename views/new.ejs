@@ -17,24 +17,26 @@
       New Pokemon:
     </h1>
     <form action="/pokemon" method="POST">
+      <input type="hidden" id="pokemon-id" name="id" value="<%= Number(data) + 1 %>">
       <label for="new-pokemon">Name:</label>
-      <input type="text" id="new-pokemon">
+      <input type="text" id="new-pokemon" name="name">
       <label for="new-pokemon-img">Image:</label>
-      <input type="file" id="new-pokemon-img">
+      <input type="file" id="new-pokemon-img" name="img">
       <label for="type">Type:</label>
-      <input type="text" id="type" placeholder="Seperate types with space">
+      <input type="text" id="type" name="type" placeholder="Seperate types with space">
+      <input type="hidden" id="pokemon-stats" name="stats" value="<%= [] %>">
       <label for="hp">HP:</label>
-      <input type="number" id="hp">
+      <input type="number" id="hp" name="hp">
       <label for="attack">Attack:</label>
-      <input type="number" id="attack">
+      <input type="number" id="attack" name="attack">
       <label for="defense">Defense:</label>
-      <input type="number" id="defense">
+      <input type="number" id="defense" name="defense">
       <label for="spattack">Sp Attack:</label>
-      <input type="number" id="spattack">
+      <input type="number" id="spattack" name="spattack">
       <label for="spdefense">Sp Defense:</label>
-      <input type="number" id="spdefense">
+      <input type="number" id="spdefense" name="spdefense">
       <label for="speed">Speed:</label>
-      <input type="number" id="speed"><br>
+      <input type="number" id="speed" name="speed"><br>
       <input type="submit" value="Submit">
     </form>
   </div>

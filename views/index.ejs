@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="/custom.css">
   <title>Pokedex: All</title>
 </head>
+
 <body>
   <a href="/pokemon/new">
     <button>Create a Pokemon!</button>
@@ -16,18 +18,25 @@
   <div class="container">
     <% for (pokemon of data) { %>
       <div class="pokemon-card" id="<%= pokemon.name %>">
-        <h4><%= pokemon.name %></h4>
-        <img src="<%= pokemon.img %>" alt="<%= `picture of ` + pokemon.name %>">
+        <a href="/pokemon/<%= data.id %>">
+          <h4>
+            <%= pokemon.name %>
+          </h4>
+        </a>
+        <a href="/pokemon/<%= data.id %>">
+          <img src="<%= pokemon.img %>" alt="<%= `picture of ` + pokemon.name %>">
+        </a>
         <div class="pokemon-card-actions">
           <a href="/pokemon/<%= Number(pokemon.id) %>/edit">
             <button>Edit</button>
           </a>
           <form action="/pokemon/:id?_method=DELETE" method="POST">
             <button>Delete</button>
-          <form>
+            <form>
         </div>
       </div>
-    <% } %>
+      <% } %>
   </div>
 </body>
+
 </html>

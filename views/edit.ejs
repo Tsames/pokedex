@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,39 @@
   <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/skeleton.css">
   <link rel="stylesheet" href="/custom.css">
-  <title>Edit <%= data.name %></title>
+  <title>Edit <%= data.name %>
+  </title>
 </head>
+
 <body>
   <div class="container">
     <div class="pokemon-id">
-      <h1><%= data.name %></h1>
+      <h1>
+        <%= data.name %>
+      </h1>
       <img src="<%= data.img %>">
     </div>
     <form action="/pokemon/<%= Number(data.id) %>?_method=PUT" method="POST">
       <label for="<%= data.name %>">Name:</label>
-      <input type="text" id="<%= data.name %>" value="<%= data.name %>">
+      <input type="text" id="<%= data.name %>" name="name" value="<%= data.name %>">
       <label for="type">Type:</label>
-      <input type="text" id="type" value="<%= data.type.join(' ') %>">
+      <input type="text" id="type" name="type" value="<%= data.type.join(' ') %>">
+      <input type="hidden" id="pokemon-stats" name="stats" value="<%= [] %>">
       <label for="hp">HP:</label>
-      <input type="number" id="hp" value="<%= data.stats.hp %>">
+      <input type="number" id="hp" name="hp" value="<%= data.stats.hp %>">
       <label for="attack">Attack:</label>
-      <input type="number" id="attack" value="<%= data.stats.attack %>">
+      <input type="number" id="attack" name="attack" value="<%= data.stats.attack %>">
       <label for="defense">Defense:</label>
-      <input type="number" id="defense" value="<%= data.stats.defense %>">
+      <input type="number" id="defense" name="defense" value="<%= data.stats.defense %>">
       <label for="spattack">Sp Attack:</label>
-      <input type="number" id="spattack" value="<%= data.stats.spattack %>">
+      <input type="number" id="spattack" name="spattack" value="<%= data.stats.spattack %>">
       <label for="spdefense">Sp Defense:</label>
-      <input type="number" id="spdefense" value="<%= data.stats.spdefense %>">
+      <input type="number" id="spdefense" name="spdefense" value="<%= data.stats.spdefense %>">
       <label for="speed">Speed:</label>
-      <input type="number" id="speed" value="<%= data.stats.speed %>"><br>
+      <input type="number" id="speed" name="speed" value="<%= data.stats.speed %>"><br>
       <input type="submit" id="submit" value="Submit">
     </form>
   </div>
 </body>
+
 </html>
